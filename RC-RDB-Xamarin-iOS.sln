@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC-RDB-Xamarin-iOS", "RC-RDB-Xamarin-iOS\RC-RDB-Xamarin-iOS.csproj", "{607DC4DD-416F-47E2-9F40-904CC632DCCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Debug|iPhone.Build.0 = Debug|iPhone
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Release|iPhone.ActiveCfg = Release|iPhone
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Release|iPhone.Build.0 = Release|iPhone
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{607DC4DD-416F-47E2-9F40-904CC632DCCB}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
