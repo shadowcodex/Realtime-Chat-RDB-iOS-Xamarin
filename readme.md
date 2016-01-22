@@ -8,6 +8,8 @@ This client is written in C# on Xamarin.iOS.
 # This client is extremely basic. 
 It is formatted for an iPhone 6 at this time. Adding correct responsiveness to the app is on my todo list.
 
+![demo](https://raw.githubusercontent.com/Unrestricted-Coding/Realtime-Chat-RDB-iOS-Xamarin/master/demo.gif)
+
 # Todo List
 
 - Get all message (done)s
