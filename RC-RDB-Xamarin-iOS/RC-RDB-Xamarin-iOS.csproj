@@ -112,7 +112,8 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="TableSource.cs" />
-    <Compile Include="sockets.cs" />
+    <Compile Include="Messages.cs" />
+    <Compile Include="SocketUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
