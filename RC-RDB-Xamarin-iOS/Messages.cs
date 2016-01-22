@@ -12,7 +12,7 @@ namespace RCRDBXamariniOS
 {
 	public class Messages
 	{
-		LinkedList<string> messages = new LinkedList<string>();
+		LinkedList<Message> messages = new LinkedList<Message>();
 		private UITableView MessageBoard;
 		private Action<Action> invokeui;
 		string source { get; }
@@ -31,48 +31,40 @@ namespace RCRDBXamariniOS
 			
 		// Refresh the message list with what is in the message array
 		public void SetMessages()
-		{			
-			string[] MessageArray = new string[messages.Count];
-			messages.CopyTo (MessageArray, 0);
-			MessageBoard.Source = new TableSource(MessageArray);
+		{						
+			MessageBoard.Source = new TableSource(messages);
 			MessageBoard.ReloadData ();
 		}
 			
 		// Refresh the message list with what was sent to the function
-		public void SetMessages(LinkedList<string> messages)
+		public void SetMessages(LinkedList<Message> messages)
 		{
 			this.messages = messages;
-			string[] MessageArray = new string[messages.Count];
-			messages.CopyTo (MessageArray, 0);
-			MessageBoard.Source = new TableSource(MessageArray);
+			MessageBoard.Source = new TableSource(messages);
 			MessageBoard.ReloadData ();
 		}
 
 		// Refresh the message list from inside a thread with what is in the message array
 		public void SetMessagesUI()
-		{		
-			string[] MessageArray = new string[messages.Count];
-			messages.CopyTo (MessageArray, 0);	
+		{						
 			invokeui ( () => {				
-				MessageBoard.Source = new TableSource(MessageArray);
+				MessageBoard.Source = new TableSource(messages);
 				MessageBoard.ReloadData ();
 			});
 
 		}
 
 		// Refresh the message list from inside a thread with what was sent to the function
-		public void SetMessagesUI(LinkedList<string> messages)
+		public void SetMessagesUI(LinkedList<Message> messages)
 		{
 			this.messages = messages;
-			string[] MessageArray = new string[messages.Count];
-			messages.CopyTo (MessageArray, 0);
 			invokeui ( () => {				
-				MessageBoard.Source = new TableSource(MessageArray);
+				MessageBoard.Source = new TableSource(messages);
 				MessageBoard.ReloadData ();
 			});
 		}
 
-		public async void Send(string message)
+		public void Send(string message)
 		{
 			//{message: message, name: name} 
 			var values = new NameValueCollection();
@@ -106,7 +98,23 @@ namespace RCRDBXamariniOS
 		{			
 			JsonValue values = await FetchMessages (source+"/message/all");
 			foreach (JsonValue value in values) {
-				messages.AddLast (value ["name"].ToString() + value ["message"].ToString());
+				
+				// Strip annoying quotes off of the values.
+				// Name
+				string name = value ["name"].ToString ();
+				name = name.Substring(1, name.Length -2);
+
+				// Message
+				string message = value ["message"].ToString ();
+				message = message.Substring (1, message.Length - 2);
+
+				// TimeStamp
+				string datestring = value ["date"].ToString ();
+				datestring = datestring.Substring (1, datestring.Length - 2);
+				DateTime date = Convert.ToDateTime (datestring);
+
+				// Add message to message list
+				messages.AddLast(new Message(message, name, date));
 			}
 			SetMessages ();
 
@@ -139,7 +147,7 @@ namespace RCRDBXamariniOS
 		}
 
 		// Mutator method to add new messages
-		public void Add(string item)
+		public void Add(Message item)
 		{
 			messages.AddFirst (item);
 		}
@@ -163,6 +171,26 @@ namespace RCRDBXamariniOS
 				};
 				alert.Show();
 			});
+		}
+
+		public static Message FindMessage(LinkedList<Message> messages, int index)
+		{
+			Message message = new Message();
+			int count = 0;
+			Boolean found = false;
+			foreach (Message Item in messages) {
+				if (count == index) {
+					found = true;
+					message = Item;
+					break;
+				}
+				count++;
+			}
+
+			if (found)
+				return message;
+			else
+				return null;
 		}
 	}
 }

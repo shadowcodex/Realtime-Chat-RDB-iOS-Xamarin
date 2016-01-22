@@ -23,6 +23,9 @@ namespace RCRDBXamariniOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			MessageBoard.RowHeight = UITableView.AutomaticDimension;
+			MessageBoard.EstimatedRowHeight = 100;
+
 			// Perform any additional setup after loading the view, typically from a nib.
 			theurl = "http://realtime-chat.unrestrictedcoding.com";
 

@@ -31,8 +31,22 @@ namespace RCRDBXamariniOS
 				JsonValue tempdata = JsonValue.Parse(data.ToString());
 				JsonValue thedata = tempdata["new_val"];
 
+				// Strip annoying quotes off of the values.
+				// Name
+				string name = thedata ["name"].ToString ();
+				name = name.Substring(1, name.Length -2);
+
+				// Message
+				string message = thedata ["message"].ToString ();
+				message = message.Substring (1, message.Length - 2);
+
+				// TimeStamp
+				string datestring = thedata ["date"].ToString ();
+				datestring = datestring.Substring (1, datestring.Length - 2);
+				DateTime date = Convert.ToDateTime (datestring);
+
 				// Add message to messages
-				Messages.Add (thedata ["name"].ToString () + thedata ["message"].ToString ());
+				Messages.Add (new Message(message, name, date));
 				Messages.SetMessagesUI ();
 
 			});

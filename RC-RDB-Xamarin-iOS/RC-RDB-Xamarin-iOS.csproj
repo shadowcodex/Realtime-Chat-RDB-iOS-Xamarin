@@ -114,6 +114,8 @@
     <Compile Include="TableSource.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="SocketUtil.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessageCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
