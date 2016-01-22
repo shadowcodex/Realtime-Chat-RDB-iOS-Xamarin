@@ -5,7 +5,7 @@ This connects to the demo server for the Realtime-Chat-RethinkDB project. It sho
 This client is written in C# on Xamarin.iOS.
 
 
-# This client is extremely basic. You should not use this for anything real, the tableview is a quick and very wrong way to display and show the messages...
+# This client is extremely basic. 
 
 # Todo List
 
@@ -14,4 +14,8 @@ This client is written in C# on Xamarin.iOS.
 - Recieve New Messages (done)
 - Send Name (done)
 - Send Message (done)
-- Convert Table into something else or make it better to read.
+- Style Table (done)
+- Creatye Message Type (done)
+- Create Custom DataSource (done)
+- Create Custom TableCell (done)
+- Push final code to github (done)
