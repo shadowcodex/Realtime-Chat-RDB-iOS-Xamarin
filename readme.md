@@ -12,5 +12,6 @@ This client is written in C# on Xamarin.iOS.
 - Get all message (done)s
 - Update Name (done)
 - Recieve New Messages (done)
-- Send Name
-- Send Message
+- Send Name (done)
+- Send Message (done)
+- Convert Table into something else or make it better to read.
