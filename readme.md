@@ -1,5 +1,3 @@
-[![Visit Facebook Group](https://img.shields.io/badge/Facebook-Visit%20Community-blue.svg)](https://www.facebook.com/groups/204308966622383)
-
 # Realtime Chat Client for iOS
 
 This connects to the demo server for the Realtime-Chat-RethinkDB project. It shows how you can extend the project to multiple clients.
